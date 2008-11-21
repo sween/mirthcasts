@@ -1,0 +1,191 @@
+<com.webreach.mirth.model.Channel>
+  <id>e6b455c3-4e93-484a-b792-a0be53c62fd7</id>
+  <name>Episode1 - LLP 2 Restful RAILS</name>
+  <description>Episode 1
+In this Episode (our very first!) we will show off the latest HTTP Sender that supports REST.  Our source of data for this Episode will be a standard HL7 LLP listener that maps a particular field value to a variable and stores it to a Ruby on Rails Application.
+
+Sponsor:
+DevArboretum ( http://www.devarboretum.com ) - Affordable Web Development
+
+mirthCaster:
+Ron Sweeney
+</description>
+  <enabled>true</enabled>
+  <version>1.8.0.3946</version>
+  <lastModified>
+    <time>1227210283566</time>
+    <timezone>America/New_York</timezone>
+  </lastModified>
+  <revision>2</revision>
+  <sourceConnector>
+    <name>sourceConnector</name>
+    <properties>
+      <property name="messageEnd">0x1C</property>
+      <property name="ackCodeError">AE</property>
+      <property name="messageStart">0x0B</property>
+      <property name="ackMsgRejected">Message Rejected.</property>
+      <property name="ackCodeRejected">AR</property>
+      <property name="receiveTimeout">0</property>
+      <property name="charEncoding">hex</property>
+      <property name="bufferSize">65536</property>
+      <property name="useStrictLLP">1</property>
+      <property name="reconnectInterval">5000</property>
+      <property name="waitForEndOfMessageCharacter">0</property>
+      <property name="sendACK">1</property>
+      <property name="port">6661</property>
+      <property name="ackOnNewConnection">0</property>
+      <property name="checkMSH15">0</property>
+      <property name="ackMsgSuccessful"></property>
+      <property name="tcpProtocolClassName">org.mule.providers.tcp.protocols.TcpProtocol</property>
+      <property name="responseFromTransformer">0</property>
+      <property name="segmentEnd">0x0D</property>
+      <property name="ackPort"></property>
+      <property name="charsetEncoding">DEFAULT_ENCODING</property>
+      <property name="host">127.0.0.1</property>
+      <property name="responseValue">None</property>
+      <property name="DataType">LLP Listener</property>
+      <property name="processBatchFiles">0</property>
+      <property name="ackMsgError">An Error Occured Processing Message.</property>
+      <property name="serverMode">1</property>
+      <property name="ackCodeSuccessful">AA</property>
+      <property name="ackIP"></property>
+      <property name="recordSeparator">0x0D</property>
+    </properties>
+    <transformer>
+      <steps/>
+      <inboundProtocol>HL7V2</inboundProtocol>
+      <outboundProtocol>HL7V2</outboundProtocol>
+    </transformer>
+    <filter>
+      <rules/>
+    </filter>
+    <transportName>LLP Listener</transportName>
+    <mode>SOURCE</mode>
+    <enabled>true</enabled>
+  </sourceConnector>
+  <destinationConnectors>
+    <com.webreach.mirth.model.Connector>
+      <name>Rails (Restful Rails that is!)</name>
+      <properties>
+        <property name="method">post</property>
+        <property name="replyChannelId">sink</property>
+        <property name="excludeHeaders">1</property>
+        <property name="requestVariables">&lt;properties&gt;
+  &lt;property name=&quot;patient[name]&quot;&gt;${firstname}${lastname}&lt;/property&gt;
+&lt;/properties&gt;</property>
+        <property name="DataType">HTTP Sender</property>
+        <property name="usePersistentQueues">0</property>
+        <property name="rotateQueue">0</property>
+        <property name="reconnectMillisecs">10000</property>
+        <property name="headerVariables">&lt;properties/&gt;</property>
+        <property name="host">http://127.0.0.1:3000/patients.xml</property>
+      </properties>
+      <transformer>
+        <steps>
+          <com.webreach.mirth.model.Step>
+            <sequenceNumber>0</sequenceNumber>
+            <name>lastname</name>
+            <script>var mapping;try { mapping = msg[&apos;PID&apos;][&apos;PID.5&apos;][&apos;PID.5.1&apos;].toString(); }catch (e) { logger.error(e);  mapping = &apos;&apos;;}channelMap.put(&apos;lastname&apos;, validate( mapping , &apos;&apos;, new Array()));</script>
+            <type>Mapper</type>
+            <data class="map">
+              <entry>
+                <string>Mapping</string>
+                <string>msg[&apos;PID&apos;][&apos;PID.5&apos;][&apos;PID.5.1&apos;].toString()</string>
+              </entry>
+              <entry>
+                <string>Variable</string>
+                <string>lastname</string>
+              </entry>
+              <entry>
+                <string>RegularExpressions</string>
+                <list/>
+              </entry>
+              <entry>
+                <string>DefaultValue</string>
+                <string></string>
+              </entry>
+              <entry>
+                <string>isGlobal</string>
+                <string>channel</string>
+              </entry>
+            </data>
+          </com.webreach.mirth.model.Step>
+          <com.webreach.mirth.model.Step>
+            <sequenceNumber>1</sequenceNumber>
+            <name>firstname</name>
+            <script>var mapping;try { mapping = msg[&apos;PID&apos;][&apos;PID.5&apos;][&apos;PID.5.2&apos;].toString(); }catch (e) { logger.error(e);  mapping = &apos;&apos;;}channelMap.put(&apos;firstname&apos;, validate( mapping , &apos;&apos;, new Array()));</script>
+            <type>Mapper</type>
+            <data class="map">
+              <entry>
+                <string>Mapping</string>
+                <string>msg[&apos;PID&apos;][&apos;PID.5&apos;][&apos;PID.5.2&apos;].toString()</string>
+              </entry>
+              <entry>
+                <string>Variable</string>
+                <string>firstname</string>
+              </entry>
+              <entry>
+                <string>RegularExpressions</string>
+                <list/>
+              </entry>
+              <entry>
+                <string>DefaultValue</string>
+                <string></string>
+              </entry>
+              <entry>
+                <string>isGlobal</string>
+                <string>channel</string>
+              </entry>
+            </data>
+          </com.webreach.mirth.model.Step>
+        </steps>
+        <inboundTemplate>MSH|^~\&amp;|Mirth|1|||2006044535||ADT^A04|603340|D|2.3.1&#x0D;
+EVN|A04|20060404090742&#x0D;
+PID|1|800888^^^Mirth^PN|99999999^^^AccMgr^MR^1||Episode1^mirthCasts||19570414|M||W|21 PALM MANOR^^EAST SYRACUSE^NY^130570000^^M|31|||E|M||6635130^^^Mirth^VN^1|000987655|||2|||||NOT A VETERAN|||N&#x0D;
+PD1||||1335^ALCOTT^KAREN^^^^^^AccMgr^^^^CI|||I&#x0D;
+NK1|1|TEST^MARGARET|W|21 PALM MANOR^^EAST SYRACUSE^CA^130570000|||Y&#x0D;
+PV1|1|E|ED^^^1|1|||1281^MARKHAM^JOSEPH^^^^^^AccMgr^^^^CI|1281^LANG^JOE^^^^^^Mirth^^^^CI||ED||||7|S|||62|6635130^^^AccMgr^VN^1|865^SP KOPP|||||||||||||||||||1||A|||20060404090500&#x0D;
+PV2||^NO||||||20060404090500||||||||||||||||||||||||||||||S&#x0D;
+DG1|1||^HEADACHE|HEADACHE||A|||||||||0&#x0D;
+GT1|1|382582|TEST^PATIENT MF||21 PALM MANOR^^EAST SYRACUSE^NY^130570000|||19570414|M|||000987655||||||||11&#x0D;
+IN1|1|SELF PAY NYS|734|SELF PAY NYS|||||||||||5|TEST^PATIENT MF|1|19570414|21 PALM MANOR^^EAST SYRACUSE^NY^130570000|||||||||||||||||||||||11|M||||||382582&#x0D;
+IN1|2|SELF PAY|705|SELFPAY|||||||||||5||1&#x0D;
+IN2|1||000987655&#x0D;
+
+</inboundTemplate>
+        <outboundTemplate></outboundTemplate>
+        <inboundProtocol>HL7V2</inboundProtocol>
+        <outboundProtocol>HL7V2</outboundProtocol>
+        <inboundProperties/>
+        <outboundProperties/>
+      </transformer>
+      <filter>
+        <rules/>
+      </filter>
+      <transportName>HTTP Sender</transportName>
+      <mode>DESTINATION</mode>
+      <enabled>true</enabled>
+    </com.webreach.mirth.model.Connector>
+  </destinationConnectors>
+  <properties>
+    <property name="synchronous">true</property>
+    <property name="removeNamespace">true</property>
+    <property name="transactional">false</property>
+    <property name="initialState">started</property>
+    <property name="dont_store_filtered">false</property>
+    <property name="error_messages_only">false</property>
+    <property name="max_message_age">7</property>
+    <property name="store_messages">true</property>
+    <property name="encryptData">false</property>
+  </properties>
+  <preprocessingScript>// Modify the message variable below to pre process data
+return message;</preprocessingScript>
+  <postprocessingScript>// This script executes once after a message has been processed
+return;</postprocessingScript>
+  <deployScript>// This script executes once when the mule engine is started
+// You only have access to the globalMap here to persist data
+return;</deployScript>
+  <shutdownScript>// This script executes once when the mule engine is stopped
+// You only have access to the globalMap here to persist data
+return;</shutdownScript>
+</com.webreach.mirth.model.Channel>

@@ -1,0 +1,291 @@
+DEPRECATION WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library will be REMOVED FROM RAILS 2.2. Please switch to the offical mysql gem: `gem install mysql`  See http://www.rubyonrails.org/deprecation for details. (called from mysql_connection at /Library/Ruby/Gems/1.8/gems/activerecord-2.1.1/lib/active_record/connection_adapters/mysql_adapter.rb:81)
+  [4;36;1mSQL (0.000165)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000132)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000429)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.072957)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.210309)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.000779)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000478)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreatePatients (20081120193219)
+  [4;35;1mSQL (0.087868)[0m   [0mCREATE TABLE `patients` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000896)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20081120193219')[0m
+  [4;35;1mSQL (0.000631)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000305)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000430)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.002125)[0m   [0;1mSHOW FIELDS FROM `patients`[0m
+  [4;35;1mSQL (0.001892)[0m   [0mdescribe `patients`[0m
+  [4;36;1mSQL (0.001089)[0m   [0;1mSHOW KEYS FROM `patients`[0m
+
+
+Processing PatientsController#index (for 127.0.0.1 at 2008-11-20 14:32:58) [GET]
+  Session ID: 5330badb50470538e15925c6b29ed6fd
+  Parameters: {"action"=>"index", "controller"=>"patients"}
+DEPRECATION WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library will be REMOVED FROM RAILS 2.2. Please switch to the offical mysql gem: `gem install mysql`  See http://www.rubyonrails.org/deprecation for details. (called from mysql_connection at /Library/Ruby/Gems/1.8/gems/activerecord-2.1.1/lib/active_record/connection_adapters/mysql_adapter.rb:81)
+  [4;36;1mSQL (0.000188)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000164)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mPatient Load (0.000618)[0m   [0;1mSELECT * FROM `patients` [0m
+Rendering template within layouts/patients
+Rendering patients/index
+Completed in 0.01042 (95 reqs/sec) | Rendering: 0.00321 (30%) | DB: 0.00097 (9%) | 200 OK [http://0.0.0.0/patients/]
+
+
+Processing PatientsController#new (for 127.0.0.1 at 2008-11-20 14:33:03) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--39c0981dc373f1e7d54bff4c16208817a6a5e922
+  Parameters: {"action"=>"new", "controller"=>"patients"}
+  [4;35;1mPatient Columns (0.008619)[0m   [0mSHOW FIELDS FROM `patients`[0m
+Rendering template within layouts/patients
+Rendering patients/new
+Completed in 0.02085 (47 reqs/sec) | Rendering: 0.00526 (25%) | DB: 0.00862 (41%) | 200 OK [http://0.0.0.0/patients/new]
+
+
+Processing PatientsController#create (for 127.0.0.1 at 2008-11-20 14:33:08) [POST]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--39c0981dc373f1e7d54bff4c16208817a6a5e922
+  Parameters: {"commit"=>"Create", "action"=>"create", "patient"=>{"name"=>"Chris Lang"}, "controller"=>"patients"}
+  [4;36;1mPatient Columns (0.002215)[0m   [0;1mSHOW FIELDS FROM `patients`[0m
+  [4;35;1mSQL (0.000194)[0m   [0mBEGIN[0m
+  [4;36;1mPatient Create (0.000301)[0m   [0;1mINSERT INTO `patients` (`name`, `updated_at`, `created_at`) VALUES('Chris Lang', '2008-11-20 19:33:08', '2008-11-20 19:33:08')[0m
+  [4;35;1mSQL (0.000569)[0m   [0mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/patients/1
+Completed in 0.09848 (10 reqs/sec) | DB: 0.00328 (3%) | 302 Found [http://0.0.0.0/patients]
+
+
+Processing PatientsController#show (for 127.0.0.1 at 2008-11-20 14:33:08) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsGOgtub3RpY2UiJlBhdGllbnQgd2FzIHN1Y2Nlc3NmdWxseSBjcmVh
+dGVkLgY6CkB1c2VkewY7BkY=--ce3e172252afca60d8b38d981fc7aa7a8628cc7c
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"patients"}
+  [4;36;1mPatient Columns (0.002258)[0m   [0;1mSHOW FIELDS FROM `patients`[0m
+  [4;35;1mPatient Load (0.110373)[0m   [0mSELECT * FROM `patients` WHERE (`patients`.`id` = 1) [0m
+Rendering template within layouts/patients
+Rendering patients/show
+Completed in 0.12192 (8 reqs/sec) | Rendering: 0.00254 (2%) | DB: 0.11263 (92%) | 200 OK [http://0.0.0.0/patients/1]
+
+
+Processing PatientsController#index (for 127.0.0.1 at 2008-11-20 14:33:10) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsGOgtub3RpY2UiJlBhdGllbnQgd2FzIHN1Y2Nlc3NmdWxseSBjcmVh
+dGVkLgY6CkB1c2VkewY7BlQ=--e5fbdc0118b883d301168219aa4b9e5f57d4eaa2
+  Parameters: {"action"=>"index", "controller"=>"patients"}
+  [4;36;1mPatient Load (0.000766)[0m   [0;1mSELECT * FROM `patients` [0m
+Rendering template within layouts/patients
+Rendering patients/index
+  [4;35;1mPatient Columns (0.002013)[0m   [0mSHOW FIELDS FROM `patients`[0m
+Completed in 0.01165 (85 reqs/sec) | Rendering: 0.00275 (23%) | DB: 0.00278 (23%) | 200 OK [http://0.0.0.0/patients]
+
+
+Processing PatientsController#index (for 127.0.0.1 at 2008-11-20 14:37:49) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--39c0981dc373f1e7d54bff4c16208817a6a5e922
+  Parameters: {"action"=>"index", "controller"=>"patients"}
+  [4;36;1mPatient Load (0.000680)[0m   [0;1mSELECT * FROM `patients` [0m
+Rendering template within layouts/patients
+Rendering patients/index
+  [4;35;1mPatient Columns (0.001967)[0m   [0mSHOW FIELDS FROM `patients`[0m
+Completed in 0.01101 (90 reqs/sec) | Rendering: 0.00252 (22%) | DB: 0.00265 (24%) | 200 OK [http://0.0.0.0/patients]
+
+
+Processing PatientsController#index (for 127.0.0.1 at 2008-11-20 14:37:50) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--39c0981dc373f1e7d54bff4c16208817a6a5e922
+  Parameters: {"action"=>"index", "controller"=>"patients"}
+  [4;36;1mPatient Load (0.000702)[0m   [0;1mSELECT * FROM `patients` [0m
+Rendering template within layouts/patients
+Rendering patients/index
+  [4;35;1mPatient Columns (0.201337)[0m   [0mSHOW FIELDS FROM `patients`[0m
+Completed in 0.21095 (4 reqs/sec) | Rendering: 0.00266 (1%) | DB: 0.20204 (95%) | 200 OK [http://0.0.0.0/patients]
+
+
+Processing PatientsController#index (for 127.0.0.1 at 2008-11-20 14:37:51) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--39c0981dc373f1e7d54bff4c16208817a6a5e922
+  Parameters: {"action"=>"index", "controller"=>"patients"}
+  [4;36;1mPatient Load (0.000703)[0m   [0;1mSELECT * FROM `patients` [0m
+Rendering template within layouts/patients
+Rendering patients/index
+  [4;35;1mPatient Columns (0.002571)[0m   [0mSHOW FIELDS FROM `patients`[0m
+Completed in 0.01200 (83 reqs/sec) | Rendering: 0.00273 (22%) | DB: 0.00327 (27%) | 200 OK [http://0.0.0.0/patients]
+
+
+Processing PatientsController#create (for 127.0.0.1 at 2008-11-20 14:38:04) [POST]
+  Session ID: 29893bb1edf05a8d6964f05c98d2de57
+  Parameters: {"player"=>{"name"=>"Episode1mirthCasts"}, "format"=>"xml", "action"=>"create", "controller"=>"patients"}
+  [4;36;1mPatient Columns (0.002265)[0m   [0;1mSHOW FIELDS FROM `patients`[0m
+  [4;35;1mSQL (0.000166)[0m   [0mBEGIN[0m
+  [4;36;1mPatient Create (0.000290)[0m   [0;1mINSERT INTO `patients` (`name`, `updated_at`, `created_at`) VALUES(NULL, '2008-11-20 19:38:04', '2008-11-20 19:38:04')[0m
+  [4;35;1mSQL (0.047585)[0m   [0mCOMMIT[0m
+Completed in 0.14559 (6 reqs/sec) | Rendering: 0.08750 (60%) | DB: 0.05031 (34%) | 201 Created [http://127.0.0.1/patients.xml]
+
+
+Processing PatientsController#index (for 127.0.0.1 at 2008-11-20 14:38:41) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--39c0981dc373f1e7d54bff4c16208817a6a5e922
+  Parameters: {"action"=>"index", "controller"=>"patients"}
+  [4;36;1mPatient Load (0.000790)[0m   [0;1mSELECT * FROM `patients` [0m
+Rendering template within layouts/patients
+Rendering patients/index
+  [4;35;1mPatient Columns (0.002020)[0m   [0mSHOW FIELDS FROM `patients`[0m
+Completed in 0.01181 (84 reqs/sec) | Rendering: 0.00300 (25%) | DB: 0.00281 (23%) | 200 OK [http://0.0.0.0/patients]
+
+
+Processing PatientsController#destroy (for 127.0.0.1 at 2008-11-20 14:40:46) [DELETE]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--39c0981dc373f1e7d54bff4c16208817a6a5e922
+  Parameters: {"_method"=>"delete", "action"=>"destroy", "id"=>"1", "controller"=>"patients"}
+  [4;36;1mPatient Columns (0.002255)[0m   [0;1mSHOW FIELDS FROM `patients`[0m
+  [4;35;1mPatient Load (0.000767)[0m   [0mSELECT * FROM `patients` WHERE (`patients`.`id` = 1) [0m
+  [4;36;1mSQL (0.000227)[0m   [0;1mBEGIN[0m
+  [4;35;1mPatient Destroy (0.054281)[0m   [0m DELETE FROM `patients`
+ WHERE `id` = 1
+[0m
+  [4;36;1mSQL (0.038384)[0m   [0;1mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/patients
+Completed in 0.20186 (4 reqs/sec) | DB: 0.09591 (47%) | 302 Found [http://0.0.0.0/patients/1]
+
+
+Processing PatientsController#index (for 127.0.0.1 at 2008-11-20 14:40:46) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--39c0981dc373f1e7d54bff4c16208817a6a5e922
+  Parameters: {"action"=>"index", "controller"=>"patients"}
+  [4;35;1mPatient Load (0.000714)[0m   [0mSELECT * FROM `patients` [0m
+Rendering template within layouts/patients
+Rendering patients/index
+  [4;36;1mPatient Columns (0.002099)[0m   [0;1mSHOW FIELDS FROM `patients`[0m
+Completed in 0.01190 (84 reqs/sec) | Rendering: 0.00272 (22%) | DB: 0.00281 (23%) | 200 OK [http://0.0.0.0/patients]
+
+
+Processing PatientsController#destroy (for 127.0.0.1 at 2008-11-20 14:40:48) [DELETE]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--39c0981dc373f1e7d54bff4c16208817a6a5e922
+  Parameters: {"_method"=>"delete", "action"=>"destroy", "id"=>"2", "controller"=>"patients"}
+  [4;35;1mPatient Columns (0.004444)[0m   [0mSHOW FIELDS FROM `patients`[0m
+  [4;36;1mPatient Load (0.000724)[0m   [0;1mSELECT * FROM `patients` WHERE (`patients`.`id` = 2) [0m
+  [4;35;1mSQL (0.000152)[0m   [0mBEGIN[0m
+  [4;36;1mPatient Destroy (0.000237)[0m   [0;1m DELETE FROM `patients`
+ WHERE `id` = 2
+[0m
+  [4;35;1mSQL (0.005536)[0m   [0mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/patients
+Completed in 0.01871 (53 reqs/sec) | DB: 0.01109 (59%) | 302 Found [http://0.0.0.0/patients/2]
+
+
+Processing PatientsController#index (for 127.0.0.1 at 2008-11-20 14:40:48) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--39c0981dc373f1e7d54bff4c16208817a6a5e922
+  Parameters: {"action"=>"index", "controller"=>"patients"}
+  [4;36;1mPatient Load (0.000701)[0m   [0;1mSELECT * FROM `patients` [0m
+Rendering template within layouts/patients
+Rendering patients/index
+Completed in 0.00730 (136 reqs/sec) | Rendering: 0.00089 (12%) | DB: 0.00070 (9%) | 200 OK [http://0.0.0.0/patients]
+
+
+Processing PatientsController#new (for 127.0.0.1 at 2008-11-20 14:40:54) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--39c0981dc373f1e7d54bff4c16208817a6a5e922
+  Parameters: {"action"=>"new", "controller"=>"patients"}
+  [4;35;1mPatient Columns (0.002249)[0m   [0mSHOW FIELDS FROM `patients`[0m
+Rendering template within layouts/patients
+Rendering patients/new
+Completed in 0.01109 (90 reqs/sec) | Rendering: 0.00245 (22%) | DB: 0.00225 (20%) | 200 OK [http://0.0.0.0/patients/new]
+
+
+Processing PatientsController#create (for 127.0.0.1 at 2008-11-20 14:40:59) [POST]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--39c0981dc373f1e7d54bff4c16208817a6a5e922
+  Parameters: {"commit"=>"Create", "action"=>"create", "patient"=>{"name"=>"Chris Lang"}, "controller"=>"patients"}
+  [4;36;1mPatient Columns (0.002203)[0m   [0;1mSHOW FIELDS FROM `patients`[0m
+  [4;35;1mSQL (0.000173)[0m   [0mBEGIN[0m
+  [4;36;1mPatient Create (0.000281)[0m   [0;1mINSERT INTO `patients` (`name`, `updated_at`, `created_at`) VALUES('Chris Lang', '2008-11-20 19:40:59', '2008-11-20 19:40:59')[0m
+  [4;35;1mSQL (0.030097)[0m   [0mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/patients/3
+Completed in 0.04127 (24 reqs/sec) | DB: 0.03275 (79%) | 302 Found [http://0.0.0.0/patients]
+
+
+Processing PatientsController#show (for 127.0.0.1 at 2008-11-20 14:40:59) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsGOgtub3RpY2UiJlBhdGllbnQgd2FzIHN1Y2Nlc3NmdWxseSBjcmVh
+dGVkLgY6CkB1c2VkewY7BkY=--ce3e172252afca60d8b38d981fc7aa7a8628cc7c
+  Parameters: {"action"=>"show", "id"=>"3", "controller"=>"patients"}
+  [4;36;1mPatient Columns (0.002996)[0m   [0;1mSHOW FIELDS FROM `patients`[0m
+  [4;35;1mPatient Load (0.000672)[0m   [0mSELECT * FROM `patients` WHERE (`patients`.`id` = 3) [0m
+Rendering template within layouts/patients
+Rendering patients/show
+Completed in 0.01196 (83 reqs/sec) | Rendering: 0.00167 (13%) | DB: 0.00367 (30%) | 200 OK [http://0.0.0.0/patients/3]
+
+
+Processing PatientsController#index (for 127.0.0.1 at 2008-11-20 14:41:04) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsGOgtub3RpY2UiJlBhdGllbnQgd2FzIHN1Y2Nlc3NmdWxseSBjcmVh
+dGVkLgY6CkB1c2VkewY7BlQ=--e5fbdc0118b883d301168219aa4b9e5f57d4eaa2
+  Parameters: {"action"=>"index", "controller"=>"patients"}
+  [4;36;1mPatient Load (0.000665)[0m   [0;1mSELECT * FROM `patients` [0m
+Rendering template within layouts/patients
+Rendering patients/index
+  [4;35;1mPatient Columns (0.001914)[0m   [0mSHOW FIELDS FROM `patients`[0m
+Completed in 0.01080 (92 reqs/sec) | Rendering: 0.00251 (23%) | DB: 0.00258 (23%) | 200 OK [http://0.0.0.0/patients]
+
+
+Processing PatientsController#index (for 127.0.0.1 at 2008-11-20 14:45:13) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--39c0981dc373f1e7d54bff4c16208817a6a5e922
+  Parameters: {"action"=>"index", "controller"=>"patients"}
+  [4;36;1mPatient Load (0.000984)[0m   [0;1mSELECT * FROM `patients` [0m
+Rendering template within layouts/patients
+Rendering patients/index
+  [4;35;1mPatient Columns (0.002998)[0m   [0mSHOW FIELDS FROM `patients`[0m
+Completed in 0.01455 (68 reqs/sec) | Rendering: 0.00261 (17%) | DB: 0.00398 (27%) | 200 OK [http://0.0.0.0/patients]
+
+
+Processing PatientsController#index (for 127.0.0.1 at 2008-11-20 14:45:14) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--39c0981dc373f1e7d54bff4c16208817a6a5e922
+  Parameters: {"action"=>"index", "controller"=>"patients"}
+  [4;36;1mPatient Load (0.000719)[0m   [0;1mSELECT * FROM `patients` [0m
+Rendering template within layouts/patients
+Rendering patients/index
+  [4;35;1mPatient Columns (0.003357)[0m   [0mSHOW FIELDS FROM `patients`[0m
+Completed in 0.01320 (75 reqs/sec) | Rendering: 0.00273 (20%) | DB: 0.00408 (30%) | 200 OK [http://0.0.0.0/patients]
+
+
+Processing PatientsController#index (for 127.0.0.1 at 2008-11-20 14:45:14) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--39c0981dc373f1e7d54bff4c16208817a6a5e922
+  Parameters: {"action"=>"index", "controller"=>"patients"}
+  [4;36;1mPatient Load (0.000687)[0m   [0;1mSELECT * FROM `patients` [0m
+Rendering template within layouts/patients
+Rendering patients/index
+  [4;35;1mPatient Columns (0.001966)[0m   [0mSHOW FIELDS FROM `patients`[0m
+Completed in 0.01129 (88 reqs/sec) | Rendering: 0.00262 (23%) | DB: 0.00265 (23%) | 200 OK [http://0.0.0.0/patients]
+
+
+Processing PatientsController#create (for 127.0.0.1 at 2008-11-20 14:45:21) [POST]
+  Session ID: cec427202c8717b1f4830328bd9d3e6c
+  Parameters: {"format"=>"xml", "action"=>"create", "patient"=>{"name"=>"mirthCastsEpisode1"}, "controller"=>"patients"}
+  [4;36;1mPatient Columns (0.002194)[0m   [0;1mSHOW FIELDS FROM `patients`[0m
+  [4;35;1mSQL (0.000196)[0m   [0mBEGIN[0m
+  [4;36;1mPatient Create (0.000278)[0m   [0;1mINSERT INTO `patients` (`name`, `updated_at`, `created_at`) VALUES('mirthCastsEpisode1', '2008-11-20 19:45:21', '2008-11-20 19:45:21')[0m
+  [4;35;1mSQL (0.051483)[0m   [0mCOMMIT[0m
+Completed in 0.06453 (15 reqs/sec) | Rendering: 0.00212 (3%) | DB: 0.05415 (83%) | 201 Created [http://127.0.0.1/patients.xml]
+
+
+Processing PatientsController#index (for 127.0.0.1 at 2008-11-20 14:45:52) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--39c0981dc373f1e7d54bff4c16208817a6a5e922
+  Parameters: {"action"=>"index", "controller"=>"patients"}
+  [4;36;1mPatient Load (0.000722)[0m   [0;1mSELECT * FROM `patients` [0m
+Rendering template within layouts/patients
+Rendering patients/index
+  [4;35;1mPatient Columns (0.002005)[0m   [0mSHOW FIELDS FROM `patients`[0m
+Completed in 0.01127 (88 reqs/sec) | Rendering: 0.00273 (24%) | DB: 0.00273 (24%) | 200 OK [http://0.0.0.0/patients]
+
+
+Processing PatientsController#show (for 127.0.0.1 at 2008-11-20 14:45:57) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--39c0981dc373f1e7d54bff4c16208817a6a5e922
+  Parameters: {"action"=>"show", "id"=>"4", "controller"=>"patients"}
+  [4;36;1mPatient Columns (0.002234)[0m   [0;1mSHOW FIELDS FROM `patients`[0m
+  [4;35;1mPatient Load (0.000649)[0m   [0mSELECT * FROM `patients` WHERE (`patients`.`id` = 4) [0m
+Rendering template within layouts/patients
+Rendering patients/show
+Completed in 0.01160 (86 reqs/sec) | Rendering: 0.00183 (15%) | DB: 0.00288 (24%) | 200 OK [http://0.0.0.0/patients/4]
